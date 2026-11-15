@@ -64,7 +64,7 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="p-2 rounded-lg bg-white border border-stone-200 flex items-center justify-between shadow-sm">
                 <div>
-                  <span className="text-xs font-bold text-amber-700">UTS26</span>
+                  <span className="text-xs font-bold text-amber-700">UTS25</span>
                   <p className="text-[10px] text-zinc-500">Diskon 25% Semua Menu</p>
                 </div>
                 <span className="text-[10px] bg-amber-50 text-amber-700 px-2 py-0.5 rounded border border-amber-200 font-mono font-bold">

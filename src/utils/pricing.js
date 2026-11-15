@@ -3,7 +3,7 @@
  */
 
 export const PROMO_CODES = {
-  UTS26: { code: 'UTS26', rate: 0.25, label: 'Diskon 25%', description: 'Spesial UTS Diskon 25%' },
+  UTS25: { code: 'UTS25', rate: 0.25, label: 'Diskon 25%', description: 'Spesial UTS Diskon 25%' },
   HEMAT10: { code: 'HEMAT10', rate: 0.10, label: 'Diskon 10%', description: 'Hemat Ceria Diskon 10%' },
   KOPI15: { code: 'KOPI15', rate: 0.15, label: 'Diskon 15%', description: 'Pecinta Kopi Diskon 15%' },
 };
