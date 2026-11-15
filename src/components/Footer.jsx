@@ -1,96 +1,120 @@
-import { Coffee, Clock, Heart, Sparkles } from 'lucide-react';
+import { Coffee, Clock, Heart, Sparkles, MapPin, Wifi, Tag, Phone } from 'lucide-react';
+
+const PROMOS = [
+  { code: 'UTS25',   desc: 'Diskon 25% Semua Menu', pct: '-25%', color: 'from-amber-500 to-amber-700' },
+  { code: 'HEMAT10', desc: 'Diskon 10% Pengguna Baru', pct: '-10%', color: 'from-emerald-500 to-emerald-700' },
+  { code: 'KOPI15',  desc: 'Diskon 15% Menu Kopi', pct: '-15%', color: 'from-sky-500 to-sky-700' },
+];
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-stone-100 border-t border-stone-200 text-zinc-600 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand Col */}
-          <div className="space-y-3 md:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center text-white shadow-sm">
+    <footer className="w-full bg-zinc-950 text-zinc-400 mt-auto">
+
+      {/* Top decorative strip */}
+      <div className="h-1 w-full bg-gradient-to-r from-amber-700 via-amber-500 to-amber-700" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-white shadow-lg shadow-amber-700/30">
                 <Coffee className="w-5 h-5 stroke-[2.5]" />
               </div>
-              <span className="text-xl font-black text-zinc-900">
-                Kopi<span className="text-amber-600">Ku</span>
-              </span>
+              <div>
+                <span className="text-xl font-black text-white">Kopi<span className="text-amber-500">Ku</span></span>
+                <p className="text-[10px] font-semibold text-zinc-500 uppercase tracking-widest">Artisan Coffee</p>
+              </div>
             </div>
-            <p className="text-xs text-zinc-500 leading-relaxed">
+            <p className="text-xs text-zinc-500 leading-relaxed max-w-xs">
               Menghadirkan kenikmatan kopi nusantara berkualitas premium dipadukan sajian kuliner istimewa dengan suasana hangat dan nyaman.
             </p>
+            <div className="flex items-center gap-2 text-xs text-zinc-500">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Sedang buka · Tutup 22:00 WIB</span>
+            </div>
           </div>
 
           {/* Jam Operasional */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-amber-600" />
-              <span>Jam Operasional</span>
+          <div className="space-y-4">
+            <h4 className="text-xs font-black uppercase tracking-widest text-zinc-300 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-amber-500" />
+              Jam Operasional
             </h4>
-            <ul className="text-xs space-y-1.5 text-zinc-600">
-              <li className="flex justify-between">
-                <span>Senin - Jumat:</span>
-                <span className="text-zinc-900 font-semibold">08:00 - 22:00 WIB</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Sabtu - Minggu:</span>
-                <span className="text-amber-700 font-bold">07:00 - 23:00 WIB</span>
-              </li>
-              <li className="text-[11px] text-zinc-400 pt-1">
-                *Tersedia Dine-in, Takeaway, dan Online Order
+            <ul className="text-xs space-y-2.5">
+              {[
+                { day: 'Senin – Jumat', time: '08:00 – 22:00 WIB', highlight: false },
+                { day: 'Sabtu – Minggu', time: '07:00 – 23:00 WIB', highlight: true  },
+              ].map(({ day, time, highlight }) => (
+                <li key={day} className="flex flex-col gap-0.5">
+                  <span className="text-zinc-500">{day}</span>
+                  <span className={`font-bold ${highlight ? 'text-amber-400' : 'text-zinc-200'}`}>{time}</span>
+                </li>
+              ))}
+              <li className="text-[11px] text-zinc-600 pt-1 border-t border-zinc-800 flex items-center gap-1.5">
+                <Sparkles className="w-3 h-3 text-amber-600" />
+                Dine-in · Takeaway · Online Order
               </li>
             </ul>
           </div>
 
           {/* Lokasi & Fasilitas */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-amber-600" />
-              <span>Lokasi & Fasilitas</span>
+          <div className="space-y-4">
+            <h4 className="text-xs font-black uppercase tracking-widest text-zinc-300 flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-amber-500" />
+              Lokasi & Fasilitas
             </h4>
-            <ul className="text-xs space-y-1.5 text-zinc-600">
-              <li>Jl. Boulevard Kopi No. 26, Menteng</li>
-              <li>Free High-speed Wi-Fi (100 Mbps)</li>
-              <li>Musholla & Ruang Meeting Privat</li>
-              <li>Colokan Listrik di Setiap Meja</li>
+            <ul className="text-xs space-y-2.5 text-zinc-500">
+              {[
+                { icon: MapPin, text: 'Jl. Boulevard Kopi No. 26, Menteng' },
+                { icon: Phone, text: '+62 812 3456 7890' },
+                { icon: Wifi,  text: 'Free Wi-Fi 100 Mbps' },
+              ].map(({ icon: Icon, text }) => (
+                <li key={text} className="flex items-center gap-2">
+                  <Icon className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                  <span>{text}</span>
+                </li>
+              ))}
+              <li className="flex items-center gap-2">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <span>Colokan Listrik · Musholla · Meeting Room</span>
+              </li>
             </ul>
           </div>
 
-          {/* Kode Promo Populer */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 flex items-center gap-1.5">
-              <Coffee className="w-4 h-4 text-amber-600" />
-              <span>Voucher Aktif</span>
+          {/* Voucher */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-black uppercase tracking-widest text-zinc-300 flex items-center gap-2">
+              <Tag className="w-4 h-4 text-amber-500" />
+              Voucher Aktif
             </h4>
-            <div className="space-y-2">
-              <div className="p-2 rounded-lg bg-white border border-stone-200 flex items-center justify-between shadow-sm">
-                <div>
-                  <span className="text-xs font-bold text-amber-700">UTS25</span>
-                  <p className="text-[10px] text-zinc-500">Diskon 25% Semua Menu</p>
+            <div className="space-y-2.5">
+              {PROMOS.map(({ code, desc, pct, color }) => (
+                <div
+                  key={code}
+                  className="group flex items-center justify-between p-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 transition-all duration-200 cursor-default"
+                >
+                  <div className="min-w-0">
+                    <span className="text-xs font-black text-amber-400 font-mono tracking-wider block">{code}</span>
+                    <p className="text-[10px] text-zinc-500 leading-tight mt-0.5">{desc}</p>
+                  </div>
+                  <span className={`ml-2 shrink-0 text-[10px] font-black px-2 py-1 rounded-lg bg-gradient-to-r ${color} text-white shadow-sm`}>
+                    {pct}
+                  </span>
                 </div>
-                <span className="text-[10px] bg-amber-50 text-amber-700 px-2 py-0.5 rounded border border-amber-200 font-mono font-bold">
-                  -25%
-                </span>
-              </div>
-              <div className="p-2 rounded-lg bg-white border border-stone-200 flex items-center justify-between shadow-sm">
-                <div>
-                  <span className="text-xs font-bold text-amber-700">HEMAT10</span>
-                  <p className="text-[10px] text-zinc-500">Diskon 10% Pengguna Baru</p>
-                </div>
-                <span className="text-[10px] bg-amber-50 text-amber-700 px-2 py-0.5 rounded border border-amber-200 font-mono font-bold">
-                  -10%
-                </span>
-              </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-6 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <p>© 2026 KopiKu — UTS React Fundamental. All rights reserved.</p>
-          <div className="flex items-center gap-1 text-zinc-600">
+        {/* Bottom bar */}
+        <div className="pt-6 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-zinc-600">
+          <p>© 2026 <span className="text-zinc-400 font-semibold">KopiKu</span> — UTS React Fundamental. All rights reserved.</p>
+          <div className="flex items-center gap-1.5 text-zinc-600">
             <span>Dibuat dengan</span>
-            <Heart className="w-3.5 h-3.5 text-rose-600 fill-rose-600 inline mx-0.5" />
-            <span>menggunakan React, Tailwind CSS & Lucide React</span>
+            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+            <span>menggunakan <span className="text-zinc-400 font-semibold">React · Tailwind CSS · Lucide React</span></span>
           </div>
         </div>
       </div>
