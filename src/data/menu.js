@@ -79,7 +79,7 @@ export const INITIAL_MENU = [
     price: 32000,
     stock: 14,
     image: '/images/menu-6.jpg',
-    fallbackUrl: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=800&q=80',
+    fallbackUrl: 'https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=800&h=600&q=85',
     description: 'Ceremonial grade matcha asli dari Uji, Kyoto yang di-whisk tradisional dengan fresh milk lembut, menghadirkan rasa earthy dan umami autentik.',
     rating: 4.8,
     reviews: [

@@ -33,11 +33,11 @@ export default function MenuCard({
   return (
     <div className="group relative flex flex-col bg-white border border-stone-200/90 hover:border-amber-400 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
       {/* Image Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-100 flex items-center justify-center">
         <img
           src={menu.image}
           alt={menu.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {
             if (menu.fallbackUrl && e.currentTarget.src !== menu.fallbackUrl) {
               e.currentTarget.src = menu.fallbackUrl;

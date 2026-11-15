@@ -28,11 +28,11 @@ export default function InfoModal({
     >
       <div className="space-y-5">
         {/* Hero Image & Tags */}
-        <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-stone-100 border border-stone-200">
+        <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-stone-100 border border-stone-200 flex items-center justify-center">
           <img
             src={menu.image}
             alt={menu.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
             onError={(e) => {
               if (menu.fallbackUrl && e.currentTarget.src !== menu.fallbackUrl) {
                 e.currentTarget.src = menu.fallbackUrl;
